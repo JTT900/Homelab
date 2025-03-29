@@ -1,0 +1,52 @@
+  - name: Startpage
+    width: slim
+    hide-desktop-navigation: false
+    center-vertically: true
+    columns:
+
+      - size: small
+        widgets:
+          - type: dns-stats
+            service: pihole-v6
+            url: http://${SERVER_IP}:${PIHOLE_PORT}
+            password: ${PIHOLE_PASSWORD}
+            hour-format: 24h
+
+          - type: server-stats
+            servers:
+              - type: local
+                name: Raspberry Pi
+
+      - size: full
+        widgets:
+          - type: search
+            autofocus: true
+            search-engine: https://kagi.com/search?q={QUERY}
+            new-tab: true
+            bangs:
+              - title: YouTube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
+              - title: Github
+                shortcut: "!gh"
+                url: https://github.com/search?q={QUERY}&type=repositories
+
+          - type: monitor
+            cache: 1m
+            title: Services
+            sites:
+              - title: Pi-Hole
+                url: https://pihole${SERVER_URL}/admin/login
+                check-url: http://${SERVER_IP}:${PIHOLE_PORT}/admin/
+                icon: di:pi-hole
+
+              - title: NGINX Proxy Manager
+                url: https://npm${SERVER_URL}/
+                check-url: http://${SERVER_IP}:${NPM_PORT}
+                icon: di:nginx
+
+              - title: Actual Budget
+                url: https://actual${SERVER_URL}/
+                check-url: http://${SERVER_IP}:${ACTUAL_BUDGET_PORT}
+                icon: di:actual-budget
+                
