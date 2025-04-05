@@ -30,3 +30,12 @@ URL of local services to Nginx Proxy Manager, ensuring SSL certificates to these
 An easy to use web hosted service for managing and updating the services running through Docker. An agent is set up on my other server
 to have the ability to change everything from one site. 
 
+
+
+## Future plans
+
+Ansible roles - Explore ansible and premade roles for a more secure and consistent strategy when configuring current and new servers. 
+Kubernetes - Switch from docker to kubernetes for reliability and a self healing setup. 
+
+
+
