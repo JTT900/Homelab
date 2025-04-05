@@ -18,3 +18,15 @@ Home is a page for media updates through RSS feeds to news-sites, youtube, subre
 
 Used to generate SSL certificates via Let's Encrypt 
 
+## DNS Management & Ad blocking
+**Pi-hole** - https://github.com/pi-hole
+
+Set up as a DNS-server and network wide ad blocker with integrated block-lists. Local DNS records are added to forward the 
+URL of local services to Nginx Proxy Manager, ensuring SSL certificates to these sites. 
+
+## Docker compose Management
+**dockge** - https://github.com/louislam/dockge
+
+An easy to use web hosted service for managing and updating the services running through Docker. An agent is set up on my other server
+to have the ability to change everything from one site. 
+
