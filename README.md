@@ -3,6 +3,11 @@ Current homelab stacks &amp; templates. * *under constuction* *
 
 ![Image](https://github.com/user-attachments/assets/68152526-87da-42fc-990e-55f42e004993)
 
+## Hardware
+Raspberry Pi 4 4gb running Raspbian OS
+Surface Pro 4 i7/16gb running Ubuntu 24.04.02 LTS
+Ubiquity Unifi Dream Router 7
+TP-Link SG105PE 4-port PoE+ 
 
 ## Dashboard
 **Glance** - https://github.com/glanceapp/glance
