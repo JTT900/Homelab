@@ -27,8 +27,8 @@ URL of local services to Nginx Proxy Manager, ensuring SSL certificates to these
 ## Docker compose Management
 **dockge** - https://github.com/louislam/dockge
 
-An easy to use web hosted service for managing and updating the services running through Docker. An agent is set up on my other server
-to have the ability to change everything from one site. 
+An easy to use web hosted service for managing and updating the Docker Compose files within /opt/stacks folder. An agent is set up on my other server
+to have the ability to manage both servers files from the same URL instance. 
 
 
 
