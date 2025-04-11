@@ -9,12 +9,76 @@ Surface Pro 4 i7/16gb running Ubuntu 24.04.02 LTS\
 Ubiquity Unifi Dream Router 7\
 TP-Link SG105PE 4-port PoE+ \
 
+## Network Topology
+
+
 ## Dashboard
 **Glance** - https://github.com/glanceapp/glance
 
 Startpage shows overview and stats for the Pi-Hole DNS Server, the Raspberry Pi itself and connection to running services.
 
 Home is a page for media updates through RSS feeds to news-sites, youtube, subreddits etc.
+
+<details>
+<summary><strong>Preview Docker compose for Glance configuration</strong></summary>
+<br>
+  
+```yaml
+  - name: Startpage
+    width: slim
+    hide-desktop-navigation: false
+    center-vertically: true
+    columns:
+
+      - size: small
+        widgets:
+          - type: dns-stats
+            service: pihole-v6
+            url: http://${SERVER_IP}:${PIHOLE_PORT}
+            password: ${PIHOLE_PASSWORD}
+            hour-format: 24h
+
+          - type: server-stats
+            servers:
+              - type: local
+                name: Raspberry Pi
+
+      - size: full
+        widgets:
+          - type: search
+            autofocus: true
+            search-engine: https://kagi.com/search?q={QUERY}
+            new-tab: true
+            bangs:
+              - title: YouTube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
+              - title: Github
+                shortcut: "!gh"
+                url: https://github.com/search?q={QUERY}&type=repositories
+
+          - type: monitor
+            cache: 1m
+            title: Services
+            sites:
+              - title: Pi-Hole
+                url: https://pihole${SERVER_URL}/admin/login
+                check-url: http://${SERVER_IP}:${PIHOLE_PORT}/admin/
+                icon: di:pi-hole
+
+              - title: NGINX Proxy Manager
+                url: https://npm${SERVER_URL}/
+                check-url: http://${SERVER_IP}:${NPM_PORT}
+                icon: di:nginx
+
+              - title: Actual Budget
+                url: https://actual${SERVER_URL}/
+                check-url: http://${SERVER_IP}:${ACTUAL_BUDGET_PORT}
+                icon: di:actual-budget
+                
+```
+</details>
+<br>
 
 
 ## Proxy Management
